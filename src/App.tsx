@@ -15,6 +15,10 @@ import Forum from "./pages/Forum";
 import Achievements from "./pages/Achievements";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
+import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import MainLayout from "./components/layout/MainLayout";
 import NotFound from "./pages/NotFound";
 
@@ -39,6 +43,10 @@ const App = () => (
             <Route path="/achievements" element={<Achievements />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
