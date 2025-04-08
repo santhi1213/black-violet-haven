@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import CourseCatalog from "./pages/CourseCatalog";
 import CourseDetails from "./pages/CourseDetails";
 import UserProfile from "./pages/UserProfile";
+import Learning from "./pages/Learning";
 import MainLayout from "./components/layout/MainLayout";
 import NotFound from "./pages/NotFound";
 
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/courses" element={<CourseCatalog />} />
             <Route path="/course/:courseId" element={<CourseDetails />} />
             <Route path="/profile" element={<UserProfile />} />
+            <Route path="/learning" element={<Learning />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
