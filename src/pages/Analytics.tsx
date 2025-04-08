@@ -110,50 +110,50 @@ const Analytics = () => {
                 <TabsTrigger value="weekly" className="text-xs px-3">Weekly</TabsTrigger>
                 <TabsTrigger value="monthly" className="text-xs px-3">Monthly</TabsTrigger>
               </TabsList>
+              
+              <TabsContent value="weekly" className="mt-0">
+                <div className="h-64">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={weeklyData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#333" />
+                      <XAxis dataKey="name" stroke="#999" />
+                      <YAxis stroke="#999" label={{ value: 'Minutes', angle: -90, position: 'left', fill: '#999' }} />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: "#1A1A2E",
+                          borderColor: "#7C3AED",
+                          borderRadius: "0.5rem"
+                        }}
+                        formatter={(value) => [`${value} minutes`, 'Time Spent']}
+                      />
+                      <Bar dataKey="minutes" fill="#7C3AED" radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="monthly" className="mt-0">
+                <div className="h-64">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={monthlyData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#333" />
+                      <XAxis dataKey="name" stroke="#999" />
+                      <YAxis stroke="#999" label={{ value: 'Minutes', angle: -90, position: 'left', fill: '#999' }} />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: "#1A1A2E",
+                          borderColor: "#7C3AED",
+                          borderRadius: "0.5rem"
+                        }}
+                        formatter={(value) => [`${value} minutes`, 'Time Spent']}
+                      />
+                      <Bar dataKey="minutes" fill="#7C3AED" radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </TabsContent>
             </Tabs>
           </div>
-          
-          <TabsContent value="weekly" className="mt-0">
-            <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={weeklyData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                  <XAxis dataKey="name" stroke="#999" />
-                  <YAxis stroke="#999" label={{ value: 'Minutes', angle: -90, position: 'left', fill: '#999' }} />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: "#1A1A2E",
-                      borderColor: "#7C3AED",
-                      borderRadius: "0.5rem"
-                    }}
-                    formatter={(value) => [`${value} minutes`, 'Time Spent']}
-                  />
-                  <Bar dataKey="minutes" fill="#7C3AED" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="monthly" className="mt-0">
-            <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={monthlyData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                  <XAxis dataKey="name" stroke="#999" />
-                  <YAxis stroke="#999" label={{ value: 'Minutes', angle: -90, position: 'left', fill: '#999' }} />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: "#1A1A2E",
-                      borderColor: "#7C3AED",
-                      borderRadius: "0.5rem"
-                    }}
-                    formatter={(value) => [`${value} minutes`, 'Time Spent']}
-                  />
-                  <Bar dataKey="minutes" fill="#7C3AED" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </TabsContent>
         </Card>
         
         <Card className="p-6 glass-card">
