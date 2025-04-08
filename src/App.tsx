@@ -11,6 +11,10 @@ import CourseCatalog from "./pages/CourseCatalog";
 import CourseDetails from "./pages/CourseDetails";
 import UserProfile from "./pages/UserProfile";
 import Learning from "./pages/Learning";
+import Forum from "./pages/Forum";
+import Achievements from "./pages/Achievements";
+import Analytics from "./pages/Analytics";
+import Settings from "./pages/Settings";
 import MainLayout from "./components/layout/MainLayout";
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +35,10 @@ const App = () => (
             <Route path="/course/:courseId" element={<CourseDetails />} />
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/learning" element={<Learning />} />
+            <Route path="/forum" element={<Forum />} />
+            <Route path="/achievements" element={<Achievements />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/settings" element={<Settings />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
