@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   Tabs,
@@ -18,6 +17,20 @@ import { Award, BookOpen, Calendar, Camera, Clock, Edit, User } from "lucide-rea
 import { mockCourses, mockCertificates } from "@/lib/mock-data";
 import { useToast } from "@/hooks/use-toast";
 
+interface EnrolledCourse {
+  id: string;
+  title: string;
+  thumbnail: string;
+  instructor: {
+    name: string;
+  };
+  duration: string;
+  progress: number;
+  completed?: boolean;
+  enrolled?: boolean;
+  [key: string]: any;
+}
+
 const UserProfile = () => {
   const [activeTab, setActiveTab] = useState("profile");
   const [name, setName] = useState("Alex Johnson");
@@ -26,13 +39,12 @@ const UserProfile = () => {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const enrolledCourses = mockCourses.filter(course => course.enrolled).slice(0, 5);
+  const enrolledCourses = mockCourses.filter(course => course.enrolled).slice(0, 5) as EnrolledCourse[];
 
   const handleProfileUpdate = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     
-    // Simulate API call
     setTimeout(() => {
       setLoading(false);
       toast({

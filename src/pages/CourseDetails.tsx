@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { 
@@ -35,7 +34,7 @@ import { AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 const CourseDetails = () => {
   const { courseId } = useParams<{ courseId: string }>();
   const [activeTab, setActiveTab] = useState("overview");
-  const [selectedLesson, setSelectedLesson] = useState(null);
+  const [selectedLesson, setSelectedLesson] = useState<any>(null);
   
   // Find course by ID
   const course = mockCourses.find(c => c.id === courseId) || mockCourses[0];
@@ -44,7 +43,7 @@ const CourseDetails = () => {
   const courseLessons = mockLessons.filter(lesson => lesson.courseId === course.id);
   
   // Group lessons by section
-  const sections = courseLessons.reduce((acc, lesson) => {
+  const sections = courseLessons.reduce<Record<string, any[]>>((acc, lesson) => {
     if (!acc[lesson.section]) {
       acc[lesson.section] = [];
     }
@@ -52,7 +51,7 @@ const CourseDetails = () => {
     return acc;
   }, {});
 
-  const handleLessonClick = (lesson) => {
+  const handleLessonClick = (lesson: any) => {
     if (!lesson.locked) {
       setSelectedLesson(lesson);
       setActiveTab("lesson");
@@ -136,7 +135,7 @@ const CourseDetails = () => {
                 
                 <h3 className="text-xl font-semibold mt-8 mb-4">What You'll Learn</h3>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {course.learningPoints?.map((point, index) => (
+                  {course.learningPoints && course.learningPoints.map((point: string, index: number) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle2 size={18} className="mr-2 text-green-500 shrink-0 mt-1" />
                       <span>{point}</span>
@@ -146,7 +145,7 @@ const CourseDetails = () => {
                 
                 <h3 className="text-xl font-semibold mt-8 mb-4">Requirements</h3>
                 <ul>
-                  {course.requirements?.map((req, index) => (
+                  {course.requirements && course.requirements.map((req: string, index: number) => (
                     <li key={index} className="flex items-start mb-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-2 mr-2.5"></div>
                       <span>{req}</span>
